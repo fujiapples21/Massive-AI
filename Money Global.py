@@ -4,6 +4,7 @@ bills = float(-550)
 start = float(1000)
 A = {}
 B=raw_input('How much do you earn per month?')
+#B is later used in function "add"
 def monthlyExpenses():  
     global start      
     global bills
@@ -19,6 +20,7 @@ def add():
     
     print '$', start
     A['bank'] = float(B)
+#This adds whatever we set in the dictionary of 'bank' to start. User sets up the value.    
     start = start + A['bank']
     print 'You now have','$',start  
     
