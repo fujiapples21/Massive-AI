@@ -17,7 +17,8 @@ def help():
     'if you would like to just talk type''chatter''type' 'help2(''Your keyword'')''to continue'
 
 
-def help2(raw_input):    
+def help2(raw_input):
+#The 'words' within that quotes keep track of the user input, if the words are in it the user's sentence then it will print ___
     if 'schedule' in raw_input:
         schedule('Whats my schedule today?') 
     if 'finance' in raw_input:
@@ -41,8 +42,8 @@ def changeSchedule(newSchedule):
 #corresponding period
 def addSchedule1(schedule, period):
     global a
-#Each key can be specified, through str('x')
-#Each key is different, and anything can be kept through it
+#Each key can be specified, through "x"('sched')
+#Each key is different, and anything can be kept through it. "index within indexes"
 #Each period can be different.
     a['sched' + period] = schedule
 #retrieve a schedule back based on the period
