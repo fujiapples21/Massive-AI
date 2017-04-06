@@ -1,0 +1,9 @@
+def help():
+    print 'Hello I am your personal helper, my list of functions include running your finaces or making a scheudle or general chatter. 
+    If you want to do your finaces type ''finance' 'if you want to make a scheudle with me type ''schedule'
+    'if you would like to just talk type''chatter''type' 'help2(''Your keyword'')''to continue'
+
+
+def help2(raw_input):    
+    if 'schedule' in raw_input:
+        schedule('Whats my schedule today?') 
