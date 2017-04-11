@@ -1,0 +1,140 @@
+month = float(700)
+bills = float(-550)
+start = float(1000)
+A = {}
+B=raw_input
+#B is later used in function "add"
+#declare a dictionary so we can store key/value pairs
+#store a pair for each question set.
+#Code used from other people, already kept.
+a = {}
+s=(raw_input)
+w=(raw_input)
+p=(raw_input)
+print('Type help() to learn how I can help you')
+r = (raw_input)
+def help():
+    print 'Hello I am your personal helper, my list of functions include running your finaces or making a scheudle or general chatter. If you want to do your finaces type ''finance'' ' 'if you want to make a scheudle with me type ''schedule'' ''if you would like to just talk type'' ''chatter'' ''type'' ' 'help2(''Your keyword with single quotes around your word'')''to continue'
+
+
+def help2(raw_input):    
+    if 'schedule' in raw_input:
+        makeSchedule() 
+    if 'finance' in raw_input:
+        monthlyExpenses()
+    if 'chatter' in raw_input:
+        chatter('How are you today?')
+
+def makeSchedule():
+    global s
+    global w
+    global p
+    s=raw_input('What time do you have school?')
+    w=raw_input('What time do you have work?')
+    p=raw_input('What time do you have practice?')
+    print('Thank you, your schedule has been saved')
+    print('If you would like to see your schedule type schedule(What is my schedule today?)In single quotes. If you would like to change your schedule type') 
+           
+def schedule(raw_input):
+    global s
+    global w
+    global p
+    create = 'make' or 'schedule' or 'I' or 'Like'
+    if create in (raw_input):
+        makeSchedule()
+    routine = 'schedule' or 'today' or 'what' 'is'
+    if routine in (raw_input):
+        print('You have school at', s)
+        print('You have work at', w)
+        print('YOu have practice at',p)
+    
+def changeSchedule(school):
+    global a
+    global s
+    s = school
+    a['school'] = 'your time for school has been changed to ' + s
+    
+def changeSchedule2(work):
+    global a
+    global w
+    w = work
+    a['work'] = 'your time for work has been changed to ' + w
+    
+def changeSchedule3(practice):
+    global a
+    global p
+    p = practice
+    a['practice'] = 'your time for practice has been changed to ' + p
+#use global dictionary "a" to store a schedule with a
+#corresponding period
+def addSchedule1(schedule, period):
+    global a
+#Each key can be specified, through str('x')
+#Each key is different, and anything can be kept through it
+#Each period can be different.
+    a['sched' + period] = schedule
+#retrieve a schedule back based on the period
+def schedule1(period):
+    global a
+    routine = 'sched' + period
+    for key,value in a.items():
+        #print key + " => " + value
+        if routine == (key):
+            print 'schedule: ' + value
+
+#change the schedule for the period using the dynamic key
+def changeSchedule1(newSchedule, period):
+    global a
+    routine = 'sched' + period
+    a[routine] = newSchedule
+    
+def monthlyExpenses():  
+    global start      
+    global bills
+    global month
+    start = start + bills
+    print 'You now have','$',start     
+       
+def add():
+    global start
+    global month
+    global A
+    global B
+    
+    print '$', start
+    A['bank'] = float(B)
+#This adds whatever we set in the dictionary of 'bank' to start. User sets up the value.    
+    start = start + A['bank']
+    print 'You now have','$',start  
+
+def name():
+   global r
+   r=raw_input('What did you buy?')   
+   
+     
+def spend(b):
+    global start
+    start = start - float(b)
+    name()
+    print 'You spent $',b, 'on', r 
+    
+def money():
+    global start
+    start = start - 50
+    print '$', float(start)
+    
+def cash():
+    global start
+    start = start +25
+    print '$', float(start)
+    
+def chatter(raw_input):
+    talk = 'how' and 'are' and 'today'
+    if talk in (raw_input):
+        print('I am fabulous, thanks for asking')
+        bad = 'sad' and 'unhappy' and 'am' and 'I'
+        if bad in (raw_input):
+            print('Aww, there, there')
+        good = 'happy' and 'well' and 'fine' and 'good'
+        if good in (raw_input):
+            print('Glad to hear it')
