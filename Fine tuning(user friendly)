@@ -3,6 +3,7 @@ bills = float(-550)
 start = float(1000)
 A = {}
 B=raw_input
+
 #B is later used in function "add"
 #declare a dictionary so we can store key/value pairs
 #store a pair for each question set.
@@ -13,20 +14,25 @@ w=(raw_input)
 p=(raw_input)
 print('Type help() to learn how I can help you')
 r = (raw_input)
+
+#The beginning of our "A.I."
 def help():
     print 'Hello I am your personal helper, my list of functions include running your finaces, making a schedule, or general chatter. If you want to do your finaces type ''finance'' ' 'if you want to make a scheudle with me type ''schedule'' ''if you would like to just talk type'' ''chatter'' ''type'' ' 'help2(''Your keyword with single quotes around your word'')''to continue. '
     print 'You may also change your schedule by typing changeSchedule, changeSchedule1, or changeSchedule2 in the following order that the questions will be asked. This may only occur once you create your schedule.'
 
+#Redirects functions for simpler use
 def help2(raw_input):    
     if 'schedule' in raw_input:
         makeSchedule() 
     if 'finance' in raw_input:
-        monthlyExpenses()
+        weeklyExpenses()
     if 'chatter' in raw_input:
         chatter('How are you today?')
 
+#This function makes the schedule and asks 3 questions for the user. This information is 
+#Then kept globally to easier input fast variables.
 def makeSchedule():
-    print 'I will be asking 3 questions. When you have school, work, and practice. If you wish to add more information or are not able to answer one, leave it blank.'
+    print 'I will be asking 3 questions. When you have school, work, and practice. If you wish to add more information later on type advancedSchedule() once finished to learn how to add onto schedule. If you are not able to answer one, leave it blank.'
     global s
     global w
     global p
@@ -34,8 +40,10 @@ def makeSchedule():
     w=raw_input('What time do you have work?')
     p=raw_input('What time do you have practice?')
     print('Thank you, your schedule has been saved')
-    print('If you would like to see your schedule type schedule(What is my schedule today?)In single quotes. If you would like to change your schedule type') 
+    print('If you would like to see your schedule type schedule(What is my schedule today?)In single quotes. If you would like to change your schedule type changeSchedule(\'time\') for school and it should change. This will also work with changeSchedule2(\'time\') for work and changeSchedule3(\'time\') for practice.') 
            
+#This function spits out all of the information that the user input in makeSchedule(). 
+#After this finishes, it then explains how to add more information if needed.
 def schedule(raw_input):
     global s
     global w
@@ -45,33 +53,37 @@ def schedule(raw_input):
         makeSchedule()
     routine = 'schedule' or 'today' or 'what' 'is'
     if routine in (raw_input):
-        print('You have school at', s)
-        print('You have work at', w)
-        print('YOu have practice at',p)
+        print'You have school at' + s
+        print'You have work at' + w
+        print'You have practice at' + p
     print 'If you would like to add more daily or weekly routines, you may enter advancedSchedule() to explain how to add more.'
         
+#Changes the timing of school as explaiend in schedule()
 def changeSchedule(school):
     global a
     global s
     s = school
     a['school'] = 'your time for school has been changed to ' + s
     
+#Changes the timing of work as explained in schedule()
 def changeSchedule2(work):
     global a
     global w
     w = work
     a['work'] = 'your time for work has been changed to ' + w
     
+#Changes the timing of practice as explained in schedule()
 def changeSchedule3(practice):
     global a
     global p
     p = practice
     a['practice'] = 'your time for practice has been changed to ' + p
     
-def advancedSchedule()
-    print 'Type addSchedule1(time of event in single quotes, event or class) This may be never ending until you delete the event.'
-    print 'Type schedule1(event or class) to see the time of the given event or class.'
-    print 'Type' 
+#This functions explains to user how the functions below work in minor detail
+def advancedSchedule():
+    print 'Type addSchedule1(\'time of event\', \'event or class\') This may be never ending until you delete the event.'
+    print 'Type schedule1(\'event or class\') to see the time of the given event or class.'
+    print 'Type changeSchedule1(\'insert time of new event\', \'event or class you wish to change\') and it should change when you check the schedule1().'
     
 def addSchedule1(schedule, period):
 #use global dictionary "a" to store a schedule with a
@@ -95,6 +107,7 @@ def changeSchedule1(newSchedule, period):
     global a
     routine = 'sched' + period
     a[routine] = newSchedule
+    
     
 def monthlyExpenses():  
     global start      
