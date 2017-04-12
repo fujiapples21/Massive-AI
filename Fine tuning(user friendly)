@@ -40,7 +40,7 @@ def makeSchedule():
     w=raw_input('What time do you have work?')
     p=raw_input('What time do you have practice?')
     print('Thank you, your schedule has been saved')
-    print('If you would like to see your schedule type schedule(What is my schedule today?)In single quotes. If you would like to change your schedule type changeSchedule(\'time\') for school and it should change. This will also work with changeSchedule2(\'time\') for work and changeSchedule3(\'time\') for practice.') 
+    print('If you would like to see your schedule type schedule(\'What is my schedule today?\') If you would like to change your schedule type changeSchedule(\'time\') for school and it should change. This will also work with changeSchedule2(\'time\') for work and changeSchedule3(\'time\') for practice.') 
            
 #This function spits out all of the information that the user input in makeSchedule(). 
 #After this finishes, it then explains how to add more information if needed.
