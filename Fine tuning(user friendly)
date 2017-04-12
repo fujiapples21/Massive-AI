@@ -17,7 +17,7 @@ r = (raw_input)
 
 #The beginning of our "A.I."
 def help():
-    print 'Hello I am your personal helper, my list of functions include running your finaces, making a schedule, or general chatter. If you want to do your finaces type ''finance'' ' 'if you want to make a scheudle with me type ''schedule'' ''if you would like to just talk type'' ''chatter'' ''type'' ' 'help2(''Your keyword with single quotes around your word'')''to continue. '
+    print 'Hello I am Jennifer, your personal helper. My list of functions include running your finaces, making a schedule, or general chatter. If you want to do your finaces type ''finance'' ' 'if you want to make a scheudle with me type ''schedule'' ''if you would like to just talk type'' ''chatter'' ''type'' ' 'help2(''Your keyword with single quotes around your word'')''to continue. '
     print 'You may also change your schedule by typing changeSchedule, changeSchedule1, or changeSchedule2 in the following order that the questions will be asked. This may only occur once you create your schedule.'
 
 #Redirects functions for simpler use
