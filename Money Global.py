@@ -65,16 +65,15 @@ def add():
     start = start + A['bank']
     print 'You now have','$',start  
     
+#If the user wishes to take out money of their current bank, they can simply input how much they spent 
+#And it will return how much you now currently have.
 def spend(b):
     global start
     start = start - float(b)
     print '$', start
     
-def CurrentMoney():
+#Prints out your current finance status.
+def currentMoney():
     global start
     print '$', start
     
-def cash():
-    global start
-    start = start +25
-    print '$', float(start)
