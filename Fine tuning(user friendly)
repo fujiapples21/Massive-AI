@@ -108,7 +108,8 @@ def changeSchedule1(newSchedule, period):
     routine = 'sched' + period
     a[routine] = newSchedule
     
-    
+#Takes the monthly expenses from the user per month, and subtracts it 
+#from how much the user currently has in their Bank or wallet
 def monthlyExpenses():  
     global start      
     global bills
@@ -116,6 +117,7 @@ def monthlyExpenses():
     start = start + bills
     print 'You now have','$',start     
        
+#This adds whatever we set in the dictionary of 'bank' to start. User sets up the value. 
 def add():
     global start
     global month
@@ -123,8 +125,7 @@ def add():
     global B
     
     print '$', start
-    A['bank'] = float(B)
-#This adds whatever we set in the dictionary of 'bank' to start. User sets up the value.    
+    A['bank'] = float(B)   
     start = start + A['bank']
     print 'You now have','$',start  
 
