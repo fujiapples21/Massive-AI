@@ -1,0 +1,189 @@
+A = {}
+B=raw_input
+#B is later used in function "add"
+#declare a dictionary so we can store key/value pairs
+#store a pair for each question set.
+#Code used from other people, already kept.
+
+Monthly_earnings=raw_input
+Weekly_expenses=raw_input
+start= raw_input
+a = {}
+s=(raw_input)
+w=(raw_input)
+p=(raw_input)
+print('Type help() to learn how I can help you')
+
+#The beginning of our "A.I."
+def help():
+    print 'Hello I am Jennifer. As your personal helper I can help you run your finances, make a schedule, or general chatter. If you would like help with finance type help2(\'finance\') if you would like help with making a schedule type help2(\'schedule\') or if you would like general talk type help2(\'chatter\')' 
+
+#Redirects functions for simpler use
+def help2(raw_input):    
+    if 'schedule' in raw_input:
+        makeSchedule() 
+    if 'finance' in raw_input:
+        gatherExpenseCost()
+    if 'chatter' in raw_input:
+        chatter('How are you today?')
+
+#This function makes the schedule and asks 3 questions for the user. This information is 
+#Then kept globally to easier input fast variables.
+def makeSchedule():
+    print 'I will be asking 3 questions. When you have school, work, and practice. If you wish to add more information later on type advancedSchedule() once finished to learn how to add onto schedule. If you are not able to answer one, leave it blank.'
+    global s
+    global w
+    global p
+    s=raw_input('What time do you have school?')
+    w=raw_input('What time do you have work?')
+    p=raw_input('What time do you have practice?')
+    print('Thank you, your schedule has been saved')
+    print('If you would like to see your schedule type schedule(\'What is my schedule today?\') If you would like to change your schedule type changeSchedule(\'time\') for school and it should change. This will also work with changeSchedule2(\'time\') for work and changeSchedule3(\'time\') for practice.') 
+           
+#This function spits out all of the information that the user input in makeSchedule(). 
+#After this finishes, it then explains how to add more information if needed.
+def schedule(raw_input):
+    global s
+    global w
+    global p
+    create = 'make' or 'schedule' or 'I' or 'Like'
+    if create in (raw_input):
+        makeSchedule()
+    routine = 'schedule' or 'today' or 'what' 'is'
+    if routine in (raw_input):
+        print'You have school at' + s
+        print'You have work at' + w
+        print'You have practice at' + p
+    print 'If you would like to add more daily or weekly routines, you may enter advancedSchedule() to explain how to add more.'
+        
+#Changes the timing of school as explaiend in schedule()
+def changeSchedule(school):
+    global a
+    global s
+    s = school
+    a['school'] = 'your time for school has been changed to ' + s
+    
+#Changes the timing of work as explained in schedule()
+def changeSchedule2(work):
+    global a
+    global w
+    w = work
+    a['work'] = 'your time for work has been changed to ' + w
+    
+#Changes the timing of practice as explained in schedule()
+def changeSchedule3(practice):
+    global a
+    global p
+    p = practice
+    a['practice'] = 'your time for practice has been changed to ' + p
+    
+#This functions explains to user how the functions below work in minor detail
+def advancedSchedule():
+    print 'Type addSchedule1(\'time of event\', \'event or class\') This may be never ending until you delete the event.'
+    print 'Type schedule1(\'event or class\') to see the time of the given event or class.'
+    print 'Type changeSchedule1(\'insert time of new event\', \'event or class you wish to change\') and it should change when you check the schedule1().'
+    
+def addSchedule1(schedule, period):
+#use global dictionary "a" to store a schedule with a
+#corresponding period
+#Each key can be specified, through str('x')
+#Each key is different, and anything can be kept through it
+#Each period can be different.
+    global a
+    a['sched' + period] = schedule
+#retrieve a schedule back based on the period
+def schedule1(period):
+    global a
+    routine = 'sched' + period
+    for key,value in a.items():
+        #print key + " => " + value
+        if routine == (key):
+            print 'schedule: ' + value
+
+#change the schedule for the period using the dynamic key
+def changeSchedule1(newSchedule, period):
+    global a
+    routine = 'sched' + period
+    a[routine] = newSchedule
+    
+#Takes the monthly expenses from the user per month, and subtracts it 
+#from how much the user currently has in their Bank or wallet
+def weeklyExpenses():  
+    global start      
+    global bills
+    global month
+    start = start - float(Weekly_expenses)
+    print 'You now have','$',start 
+    
+def spend(b):
+    global start
+    start = start - float(b)
+    print '$', start
+    
+def add(k):
+    global start
+    start = start + float(k)
+    print '$', float(start)  
+       
+def gatherExpenseCost():
+    global Monthly_earnings
+    global Weekly_expenses
+    global start
+    Monthly_earnings=float(raw_input('How much do you make a month?'))
+    Weekly_expenses=float(raw_input('How much do you spend a week?'))
+    start=float(raw_input('How much money do you currently have?'))
+    print ('You can type weeklyExpenses() to automatically subtract from your bank, you can type currentMoney() to view how much money you currently have. You can type addMonthly() to add your monthly income to your current money, weeklyExpenses() will do the same but subtract your weekly expenses. Typing changeBills(\'value\') will change the value you originally put in, changeIncome(\'value\') will do the same with your monthly earnings. The add() and spend() functions will add money or take away money depending on the number you put in the parenthese.') 
+
+def changeBills(newFees):
+#Change the weekly expenses to what you'd like or need
+    global A
+    global Weekly_expenses
+    Weekly_expenses = newFees
+    print('your fees are now',float(Weekly_expenses))
+    
+def changeIncome(income):
+    global A
+    global Monthly_earnings
+    change = income
+    print('your income is now',float(change))
+
+def fixedIncome(raw_input):
+    global Weekly_expenses
+    global A
+    global Monthly_earnings
+    fees = 'weekly' and 'expenses'
+    income = 'monthly' and 'income'
+    if fees in (raw_input):
+#This will spit out fees if the words weekly and expenses are within input
+        print 'Your fees are $',float(Weekly_expenses), 'per week.'
+    elif income in (raw_input):
+#This will spit out your income if words 'monthly' and 'income' are within input
+        print 'Your income is $',float(Monthly_earnings), 'per month.'
+        
+def addMonthly():
+    global start
+    global month
+    global A
+    global Monthly_earnings
+    
+    print '$', start
+    A['bank'] = float(Monthly_earnings)
+#The code below adds the amount of money that you earn from the key of 'bank', from the user
+#to start. Start fluctuates throughout code, but it will show you how much you have at end.
+    start = start + A['bank']
+    print 'You now have','$',start  
+    
+def currentMoney():
+    global start
+    print '$', start
+    
+def chatter(raw_input):
+    talk = 'how' and 'are' and 'today'
+    if talk in (raw_input):
+        print('I am fabulous, thanks for asking')
+        bad = 'sad' and 'unhappy' and 'am' and 'I'
+        if bad in (raw_input):
+            print('Aww, there, there')
+        good = 'happy' and 'well' and 'fine' and 'good'
+        if good in (raw_input):
+            print('Glad to hear it')
